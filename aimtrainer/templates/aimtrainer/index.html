@@ -1,0 +1,34 @@
+{% extends "aimtrainer/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<script type="text/babel" src="{% static 'aimtrainer/index.js' %}"></script>
+		<div id="landscape_message">
+			<p>Please turn your device into landscape</p>
+			<div class="row" style="margin-top: 80px;">
+			<div class="col-2"></div>
+			<img id="arrow_phone" class="col-4" src="{% static 'aimtrainer/flip_arrow.svg' %}" style="height: 275px; padding-top: 20px;"/>
+			<img id="phone" class="col-4" src="{% static 'aimtrainer/flip_phone.svg' %}"  style="height: 325px;"/>
+			<div class="col-2"></div>
+			</div>
+		</div>
+		<div id="game" class="col-auto">
+			<div id="root" class="d-flex justify-content-center"></div>
+		</div>
+
+	<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+		anime({
+		targets: '#phone',
+		rotate: 90,
+		scale:[0.9,1],
+		easing: 'spring(1, 80, 10, 0)',
+		delay:500,
+		duration: 1500,
+		direction: 'alternate',
+		loop: true
+		});
+	});	
+	</script>
+
+{% endblock %}

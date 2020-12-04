@@ -1,0 +1,63 @@
+{% extends "aimtrainer/layout.html" %}
+
+{% block body %}
+	<div id="highscores_table" style="overflow: hidden;">
+		<div class="row highscores_title">
+			<div class="col-12 col-lg-6"><h1>Highscores</h1><hr></div>
+			<div class="col-0 col-lg-6"></div>
+		</div>
+		<div id="scoreboard_box" class="row">
+			<div class="col-0 col-lg-2"></div>
+
+			<div class="col-12 col-lg-2 d-flex justify-content-center">
+				<div id="scoreboard_alltime" class="scoreboard_base">
+				<p>All time</p>
+				{% for scores in alltime_scores %}
+					<div class="element_highscore">
+						<img src="{% cycle '../static/aimtrainer/trophy1.svg' '../static/aimtrainer/trophy2.svg' '../static/aimtrainer/trophy3.svg' '../static/aimtrainer/trophy4.svg' '../static/aimtrainer/trophy5.svg' %}">
+						<li>{{scores.player}} : {{scores.score}}pts</li>
+					</div>
+				{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-2 d-flex justify-content-center">
+				<div id="scoreboard_month" class="scoreboard_base">
+				<p>This Month</p>
+				{% for scores in thismonth_scores %}
+				<div class="element_highscore">
+					<img src="{% cycle '../static/aimtrainer/trophy1.svg' '../static/aimtrainer/trophy2.svg' '../static/aimtrainer/trophy3.svg' '../static/aimtrainer/trophy4.svg' '../static/aimtrainer/trophy5.svg' %}">
+					<li>{{scores.player}} : {{scores.score}}pts</li>
+				</div>
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-12 col-lg-2 d-flex justify-content-center">
+				<div id="scoreboard_year" class="scoreboard_base">
+				<p>This Week</p>
+				{% for scores in thisyear_scores %}
+				<div class="element_highscore">
+					<img src="{% cycle '../static/aimtrainer/trophy1.svg' '../static/aimtrainer/trophy2.svg' '../static/aimtrainer/trophy3.svg' '../static/aimtrainer/trophy4.svg' '../static/aimtrainer/trophy5.svg' %}">
+					<li>{{scores.player}} : {{scores.score}}pts</li>
+				</div>
+				{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-2 d-flex justify-content-center">
+				<div id="scoreboard_today" class="scoreboard_base">
+				<p>Today</p>
+				{% for scores in today_scores %}
+				<div class="element_highscore">
+					<img src="{% cycle '../static/aimtrainer/trophy1.svg' '../static/aimtrainer/trophy2.svg' '../static/aimtrainer/trophy3.svg' '../static/aimtrainer/trophy4.svg' '../static/aimtrainer/trophy5.svg' %}">
+					<li>{{scores.player}} : <span>{{scores.score}}pts</span></li>
+				</div>
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-0 col-lg-2"></div>
+		</div>
+	</div>
+
+
+{% endblock %}
